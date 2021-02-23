@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.css">
+    <style>
+        .svg_text {
+            font-size: 8em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <section class="block" id="capture">
+            <img src="images/mooncake.jpg" alt="">
+            <div class="svg" id="svg_box">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="450"
+                    width="550">
+                    <defs>
+                        <filter id="innershadow" x0="-50%" y0="-50%" width="200%" height="200%">
+                            <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur" />
+                            <feOffset dy="-2" dx="-3" />
+                            <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff" />
+
+                            <feFlood flood-color="#5f2406" flood-opacity="1" />
+                            <feComposite in2="shadowDiff" operator="in" />
+                            <feComposite in2="SourceGraphic" operator="over" result="firstfilter" />
+
+
+                            <feGaussianBlur in="firstfilter" stdDeviation="3" result="blur2" />
+                            <feOffset dy="-2" dx="-3" />
+                            <feComposite in2="firstfilter" operator="arithmetic" k2="-1" k3="1" result="shadowDiff" />
+
+                            <feFlood flood-color="#5f2406" flood-opacity="1" />
+                            <feComposite in2="shadowDiff" operator="in" />
+                            <feComposite in2="firstfilter" operator="over" />
+                            <feComposite in2="firstfilter" operator="over" />
+                            
+                        </filter>
+                        <pattern id="image" patternUnits="userSpaceOnUse" width="1700" height="1700">
+                            <image xlink:href="images/mooncake.jpg" width="1700" height="1700" x="-340" y="-550" />
+                        </pattern>
+                    </defs>
+
+                    <text class="svg_text" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+                        fill="url(#image)" filter="url(#innershadow)">
+                        <!-- 兩行 -->
+                        <tspan x="58%" y="34%">和你一起</tspan>
+                        <tspan x="56%" y="66%">看月亮</tspan>
+                        <!-- 一行 -->
+                        <!-- <tspan x="56%" y="50%">和你一起</tspan> -->
+                    </text>
+
+                </svg>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+
+</html>
